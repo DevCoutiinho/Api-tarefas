@@ -29,8 +29,8 @@ app.use(express.json());
 
 app.use("/", publicRoutes);
 app.use("/", refreshRoute);
-app.use("/", auth, tasksRoutes);
-app.use("/", auth, userRoute);
+app.use("/tarefas", auth, tasksRoutes);
+app.use("/usuario", auth, userRoute);
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

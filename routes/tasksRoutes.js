@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const router = express.Router();
 const prisma = new PrismaClient();
 
-router.post("/adicionar_tarefas", async (req, res) => {
+router.post("/adicionar", async (req, res) => {
   const { id } = req.user;
   const { title, content } = req.body;
 
@@ -29,7 +29,7 @@ router.post("/adicionar_tarefas", async (req, res) => {
   }
 });
 
-router.get("/listar_tarefas", async (req, res) => {
+router.get("/listar", async (req, res) => {
   const { id } = req.user;
 
   try {
@@ -53,7 +53,7 @@ router.get("/listar_tarefas", async (req, res) => {
   }
 });
 
-router.patch("/atualizar_tarefa_completa", async (req, res) => {
+router.patch("/atualizar_concluida", async (req, res) => {
   const userId = req.user.id;
   const { id } = req.query;
   try {
@@ -92,7 +92,7 @@ router.patch("/atualizar_tarefa_completa", async (req, res) => {
   }
 });
 
-router.patch("/atualizar_titulo_tarefa", async (req, res) => {
+router.patch("/atualizar_titulo", async (req, res) => {
   const userId = req.user.id;
   const { id } = req.query;
   const { title } = req.body;
@@ -131,7 +131,7 @@ router.patch("/atualizar_titulo_tarefa", async (req, res) => {
   }
 });
 
-router.patch("/atualizar_conteudo_tarefa", async (req, res) => {
+router.patch("/atualizar_conteudo", async (req, res) => {
   const userId = req.user.id;
   const { id } = req.query;
   const { content } = req.body;
@@ -171,7 +171,7 @@ router.patch("/atualizar_conteudo_tarefa", async (req, res) => {
   }
 });
 
-router.patch("/atualizar_tarefa_incompleta", async (req, res) => {
+router.patch("/atualizar_incompleta", async (req, res) => {
   const userId = req.user.id;
   const { id } = req.query;
 
@@ -210,7 +210,7 @@ router.patch("/atualizar_tarefa_incompleta", async (req, res) => {
   }
 });
 
-router.delete("/deletar_tarefa", async (req, res) => {
+router.delete("/deletar", async (req, res) => {
   const userId = req.user.id;
   const { id } = req.query;
 

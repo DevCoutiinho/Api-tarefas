@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt'
 const router = express.Router()
 const prisma = new PrismaClient()
 
-router.patch('/atualizar_nome_usuario', async(req,res)=>{
+router.patch('/atualizar_nome', async(req,res)=>{
     const {id} = req.user
     const {name} = req.body
 
@@ -20,7 +20,7 @@ router.patch('/atualizar_nome_usuario', async(req,res)=>{
         if(!user){
             return res.status(404).json({message:"O usuário não existe"})
         }
-        
+
         const new_name = await prisma.user.update({
             where:{
                 id
