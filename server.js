@@ -7,6 +7,7 @@ import refreshRoute from "./routes/refreshRoute.js";
 import userRoute from "./routes/userRoutes.js";
 
 const app = express();
+const port = process.env.PORT || 3000
 
 app.use(
   cors({
@@ -31,6 +32,6 @@ app.use("/", refreshRoute);
 app.use("/", auth, tasksRoutes);
 app.use("/", auth, userRoute);
 
-app.listen(3000, () => {
-  console.log("servidor rodando na porta 3000");
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });
